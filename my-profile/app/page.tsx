@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { Mail, BookOpen, ChevronRight } from "lucide-react";
+import { Mail, BookOpen, ExternalLink, ArrowRight } from "lucide-react";
 
 const GithubIcon = ({ className }: { className?: string }) => (
   <svg
@@ -8,7 +8,7 @@ const GithubIcon = ({ className }: { className?: string }) => (
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="2"
+    strokeWidth="3"
     strokeLinecap="round"
     strokeLinejoin="round"
     className={className}
@@ -20,103 +20,198 @@ const GithubIcon = ({ className }: { className?: string }) => (
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-zinc-50 text-zinc-900 dark:bg-[#030305] dark:text-zinc-50 selection:bg-indigo-500/30">
+    <div className="min-h-screen bg-background font-sans selection:bg-pink-300 selection:text-black">
       
-      {/* Background Aurora */}
-      <div className="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-[-20%] left-[-10%] h-[70vw] w-[70vw] rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 blur-[120px] dark:from-indigo-600/20 dark:to-purple-900/20 animate-aurora mix-blend-screen opacity-70"></div>
-        <div className="absolute bottom-[-20%] right-[-10%] h-[60vw] w-[60vw] rounded-full bg-gradient-to-tl from-blue-400/20 to-cyan-400/20 blur-[100px] dark:from-blue-700/20 dark:to-cyan-900/20 animate-aurora delay-200 mix-blend-screen opacity-60"></div>
-        <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
-      </div>
+      {/* Navigation Bar */}
+      <nav className="sticky top-0 z-50 w-full bg-background neo-border-sm border-t-0 border-l-0 border-r-0 flex items-center justify-between px-6 py-4 md:px-12">
+        <div className="font-black text-2xl tracking-tighter uppercase relative group cursor-pointer hover:text-yellow-400">
+          YC/PORTFOLIO
+        </div>
+        <div className="hidden md:flex gap-8 font-bold text-lg">
+          <a href="#about" className="hover:underline decoration-4 underline-offset-4 decoration-pink-400 uppercase">About</a>
+          <a href="#links" className="hover:underline decoration-4 underline-offset-4 decoration-yellow-400 uppercase">Links</a>
+          <a href="#contact" className="hover:underline decoration-4 underline-offset-4 decoration-blue-400 uppercase">Contact</a>
+        </div>
+        <a 
+          href="#contact" 
+          className="md:hidden px-5 py-2.5 bg-yellow-300 neo-border-sm neo-shadow-sm neo-button font-black text-sm uppercase text-black"
+        >
+          Contact
+        </a>
+      </nav>
 
-      {/* Main Content */}
-      <main className="relative z-10 flex min-h-screen flex-col items-center justify-center p-6 sm:p-12">
-        <div className="w-full max-w-xl space-y-8 flex flex-col items-center">
-          
-          {/* Profile Card */}
-          <div className="group relative w-full animate-fade-in-up">
-            <div className="absolute -inset-1 rounded-[2rem] bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-25 blur-lg transition duration-1000 group-hover:opacity-50 group-hover:duration-200"></div>
+      <main className="flex flex-col items-center w-full px-6 md:px-12 pb-24 space-y-32 mt-16 md:mt-24">
+        
+        {/* HERO SECTION */}
+        <section className="w-full max-w-6xl flex flex-col-reverse lg:flex-row items-center justify-between gap-16 lg:gap-8">
+          <div className="flex-1 flex flex-col items-start gap-8 z-10">
+            <div className="inline-block bg-pink-300 neo-border-sm neo-shadow-sm px-6 py-2.5 font-bold text-black uppercase transform -rotate-2">
+              Available for work
+            </div>
             
-            <div className="relative glass w-full rounded-3xl p-10 flex flex-col items-center transition-all duration-500 hover:-translate-y-1">
-              
-              {/* Profile Image */}
-              <div className="relative mb-8 animate-float">
-                <div className="absolute -inset-3 rounded-full bg-gradient-to-tr from-indigo-500 to-purple-400 opacity-20 blur-md dark:opacity-40 animate-pulse"></div>
-                <div className="absolute -inset-1 rounded-full bg-gradient-to-tr from-indigo-400 via-purple-400 to-pink-400 p-[2px]">
-                  <div className="h-full w-full rounded-full bg-background/80 backdrop-blur-sm"></div>
-                </div>
-                <div className="relative h-32 w-32 overflow-hidden rounded-full border-4 border-transparent shadow-xl">
-                  <Image 
-                    src="/avatar.png" 
-                    alt="윤창식 Avatar" 
-                    fill
-                    sizes="128px"
-                    className="object-cover"
-                    priority
-                  />
-                </div>
+            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] xl:text-[8rem] font-black uppercase text-foreground leading-[0.85] tracking-tighter">
+              YUN<br/>
+              CHANG<br/>
+              SHIK<span className="text-yellow-400">.</span>
+            </h1>
+            
+            <p className="text-xl md:text-2xl font-bold max-w-xl text-foreground/90 mt-2">
+              바이브 코딩을 배우고 있는 대학생입니다. 코드와 창의성으로 새로운 가치를 만들어냅니다.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-6 mt-6 w-full sm:w-auto">
+              <a 
+                href="#links" 
+                className="neo-button neo-border bg-yellow-400 neo-shadow flex items-center justify-center gap-3 px-8 py-5 font-black uppercase text-lg sm:text-xl text-black"
+              >
+                View Works <ArrowRight className="h-6 w-6" strokeWidth={3} />
+              </a>
+              <a 
+                href="#contact" 
+                className="neo-button neo-border bg-white neo-shadow flex items-center justify-center gap-3 px-8 py-5 font-black uppercase text-lg sm:text-xl text-black"
+              >
+                Contact Me
+              </a>
+            </div>
+          </div>
+          
+          <div className="flex-1 flex justify-center lg:justify-end w-full mt-8 lg:mt-0">
+            <div className="relative w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] md:w-[450px] md:h-[450px] group">
+              <div className="absolute inset-0 bg-blue-400 neo-border translate-x-4 translate-y-4 md:translate-x-6 md:translate-y-6 transition-transform group-hover:translate-x-8 group-hover:translate-y-8"></div>
+              <div className="absolute inset-0 bg-white neo-border overflow-hidden z-20">
+                <Image 
+                  src="/avatar.png" 
+                  alt="윤창식 Avatar" 
+                  fill
+                  sizes="(max-width: 768px) 400px, 450px"
+                  className="object-cover grayscale hover:grayscale-0 transform hover:scale-105 transition-all duration-500 ease-out"
+                  priority
+                />
               </div>
+              <div className="absolute -bottom-8 -left-8 bg-yellow-400 neo-border neo-shadow p-4 z-30 font-black text-2xl uppercase transform rotate-6 hover:-rotate-3 transition-transform text-black hidden sm:block">
+                Developer ✨
+              </div>
+            </div>
+          </div>
+        </section>
 
-              {/* Title & Bio */}
-              <div className="text-center space-y-4">
-                <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/10 px-4 py-1.5 text-xs font-medium text-indigo-700 dark:text-indigo-300 backdrop-blur-sm shadow-sm transition-transform hover:scale-105 cursor-default">
-                  <span className="relative flex h-2 w-2">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-indigo-400 opacity-75"></span>
-                    <span className="relative inline-flex h-2 w-2 rounded-full bg-indigo-500"></span>
-                  </span>
-                  새로운 기회를 찾고 있습니다
+        {/* ABOUT SECTION */}
+        <section id="about" className="w-full max-w-6xl pt-12">
+          <div className="bg-lime-300 neo-border neo-shadow p-8 md:p-12 lg:p-16 relative">
+            <div className="absolute -top-8 -left-2 bg-white neo-border neo-shadow-sm px-8 py-3 font-black text-2xl uppercase transform -rotate-3 text-black">
+              About Me
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mt-6">
+              <div className="flex flex-col justify-center">
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-black uppercase mb-8 text-black leading-tight">
+                  My Focus is <br/>
+                  <span className="text-white bg-black px-4 py-1 leading-[1.3] inline-block mt-2 transform -rotate-1">User Experience</span>
+                </h2>
+                <p className="text-xl md:text-2xl font-bold text-black border-l-8 border-black pl-6">
+                  아름다운 인터페이스를 구현하는 것을 즐기며, 사용자 경험(UX)에 집착합니다. Neobrutalism과 같은 독창적이고 과감한 디자인 트렌드를 탐구하고 적용하는 것을 좋아합니다.
+                </p>
+              </div>
+              
+              <div className="flex flex-col gap-8 justify-center">
+                <div className="bg-white neo-border p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:-translate-y-2 transition-transform relative text-black duration-300">
+                  <div className="w-5 h-5 bg-yellow-400 neo-border-sm rounded-full absolute -top-2 -right-2"></div>
+                  <div className="w-16 h-16 bg-pink-300 neo-border flex flex-shrink-0 items-center justify-center font-black text-3xl">01</div>
+                  <div>
+                    <h3 className="font-black text-2xl uppercase mb-2">Vibe Coding</h3>
+                    <p className="font-bold text-lg">최신 AI 도구를 활용하여 생산성을 극대화하고 트렌디한 결과물을 도출합니다.</p>
+                  </div>
                 </div>
                 
-                <h1 className="text-5xl sm:text-6xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-zinc-900 via-zinc-700 to-zinc-900 dark:from-white dark:via-zinc-200 dark:to-zinc-400 pb-1">
-                  윤창식
-                </h1>
-                
-                <div className="space-y-2 mt-4 text-center">
-                  <p className="text-lg font-medium text-zinc-600 dark:text-zinc-300">
-                    바이브 코딩을 배우고 있는 대학생입니다.
-                  </p>
-                  <p className="text-sm font-light text-zinc-500 dark:text-zinc-400 max-w-sm mx-auto leading-relaxed">
-                    코드와 창의성으로 새로운 가치를 만들어냅니다. 사용자 경험(UX)에 집착하며 아름다운 인터페이스를 구현하는 것을 즐깁니다.
-                  </p>
+                <div className="bg-white neo-border p-6 flex flex-col sm:flex-row items-start sm:items-center gap-6 hover:-translate-y-2 transition-transform relative text-black duration-300">
+                  <div className="w-5 h-5 bg-blue-400 neo-border-sm rounded-full absolute -top-2 -right-2"></div>
+                  <div className="w-16 h-16 bg-cyan-300 neo-border flex flex-shrink-0 items-center justify-center font-black text-3xl">02</div>
+                  <div>
+                    <h3 className="font-black text-2xl uppercase mb-2">UI / UX</h3>
+                    <p className="font-bold text-lg">단순한 기능을 넘어 사용자가 기억에 깊이 남는, 눈에 띄는 매력적인 인터페이스를 만듭니다.</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+        </section>
 
-          {/* Links Section */}
-          <div className="w-full space-y-4 animate-fade-in-up delay-200">
-            {[
-              { title: "GitHub", subtitle: "오픈소스 프로젝트 살펴보기", icon: <GithubIcon className="h-5 w-5" />, href: "#", color: "from-zinc-500 to-zinc-700 dark:from-zinc-400 dark:to-white" },
-              { title: "Blog", subtitle: "개발 기록과 인사이트", icon: <BookOpen className="h-5 w-5" />, href: "#", color: "from-blue-500 to-cyan-500" },
-              { title: "Contact", subtitle: "언제든지 편하게 연락해 주세요", icon: <Mail className="h-5 w-5" />, href: "mailto:example@email.com", color: "from-purple-500 to-pink-500" }
-            ].map((link, idx) => (
-              <a key={idx} href={link.href} className="group relative flex w-full items-center justify-between overflow-hidden rounded-2xl glass p-5 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className={`absolute inset-0 bg-gradient-to-r ${link.color} opacity-0 transition-opacity duration-300 group-hover:opacity-5`}></div>
-                
-                <div className="flex items-center gap-4 relative z-10">
-                  <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-white dark:bg-black/50 border border-zinc-200/50 dark:border-white/10 shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:shadow-md`}>
-                    <div className="text-zinc-600 dark:text-zinc-300 transition-colors duration-300 group-hover:text-indigo-500">
-                      {link.icon}
-                    </div>
-                  </div>
-                  <div className="text-left">
-                    <h3 className="font-bold text-zinc-900 dark:text-zinc-100 transition-colors group-hover:text-indigo-600 dark:group-hover:text-indigo-400">{link.title}</h3>
-                    <p className="text-sm font-medium text-zinc-500 dark:text-zinc-400">{link.subtitle}</p>
-                  </div>
-                </div>
-                
-                <div className="relative z-10 flex h-8 w-8 items-center justify-center rounded-full bg-zinc-100 dark:bg-white/5 opacity-0 transition-all duration-300 group-hover:opacity-100 translate-x-4 group-hover:translate-x-0">
-                  <ChevronRight className="h-4 w-4 text-zinc-600 dark:text-zinc-300" />
-                </div>
-              </a>
-            ))}
+        {/* LINKS / PROJECTS SECTION */}
+        <section id="links" className="w-full max-w-6xl pt-12">
+          <div className="flex items-center gap-6 mb-16">
+            <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter">Links</h2>
+            <div className="h-4 flex-grow bg-foreground neo-border-sm"></div>
           </div>
-        </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <a href="#" className="group neo-button bg-yellow-300 neo-border neo-shadow flex flex-col p-8 text-black">
+              <div className="flex justify-between items-start mb-16">
+                <div className="p-4 bg-white neo-border group-hover:scale-110 transition-transform">
+                  <GithubIcon className="h-10 w-10" />
+                </div>
+                <ExternalLink className="h-10 w-10 group-hover:rotate-45 transition-transform" strokeWidth={3} />
+              </div>
+              <div>
+                <h3 className="text-4xl font-black uppercase mb-3 text-black">GitHub</h3>
+                <p className="text-xl font-bold text-black/80">오픈소스 프로젝트 살펴보기</p>
+              </div>
+            </a>
+
+            <a href="#" className="group neo-button bg-cyan-300 neo-border neo-shadow flex flex-col p-8 text-black">
+              <div className="flex justify-between items-start mb-16">
+                <div className="p-4 bg-white neo-border group-hover:scale-110 transition-transform">
+                  <BookOpen className="h-10 w-10" strokeWidth={3} />
+                </div>
+                <ExternalLink className="h-10 w-10 group-hover:rotate-45 transition-transform" strokeWidth={3} />
+              </div>
+              <div>
+                <h3 className="text-4xl font-black uppercase mb-3 text-black">Blog</h3>
+                <p className="text-xl font-bold text-black/80">개발 기록과 인사이트 분석</p>
+              </div>
+            </a>
+
+            <a href="mailto:example@email.com" id="contact" className="group neo-button bg-pink-300 neo-border neo-shadow flex flex-col p-8 text-black md:col-span-2 lg:col-span-1">
+              <div className="flex justify-between items-start mb-16">
+                <div className="p-4 bg-white neo-border group-hover:scale-110 transition-transform">
+                  <Mail className="h-10 w-10" strokeWidth={3} />
+                </div>
+                <ExternalLink className="h-10 w-10 group-hover:rotate-45 transition-transform" strokeWidth={3} />
+              </div>
+              <div>
+                <h3 className="text-4xl font-black uppercase mb-3 text-black">Contact</h3>
+                <p className="text-xl font-bold text-black/80">언제든지 편하게 연락해 주세요</p>
+              </div>
+            </a>
+          </div>
+        </section>
+
       </main>
 
-      {/* Footer */}
-      <footer className="absolute bottom-8 w-full text-center text-xs font-medium text-zinc-500/80 animate-fade-in-up delay-400">
-        <p>© {new Date().getFullYear()} 윤창식. Crafted with passion & vibe.</p>
+      {/* FOOTER */}
+      <footer className="w-full bg-black text-white py-16 px-6 md:px-12 mt-12 border-t-8 border-yellow-400 relative overflow-hidden">
+        {/* Background Decorative Pattern */}
+        <div className="absolute inset-0 opacity-10" style={{ backgroundImage: "radial-gradient(rgba(255,255,255,1) 2px, transparent 0)", backgroundSize: "30px 30px" }}></div>
+        
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12 relative z-10">
+          <div className="text-6xl font-black tracking-tighter uppercase text-yellow-400">
+            Y<br/>C<span className="text-pink-400">.</span>
+          </div>
+          
+          <div className="flex flex-col items-center gap-4">
+            <p className="font-bold text-xl md:text-2xl text-center uppercase tracking-wide">
+              © {new Date().getFullYear()} YUN CHANGSHIK.<br />Crafted with passion & vibe.
+            </p>
+            <div className="flex gap-4 mt-6">
+              <a href="#" className="w-12 h-12 bg-white text-black font-black flex items-center justify-center neo-border hover:-translate-y-1 transition-transform">X</a>
+              <a href="#" className="w-12 h-12 bg-blue-400 text-black font-black flex items-center justify-center neo-border hover:-translate-y-1 transition-transform">IN</a>
+              <a href="#" className="w-12 h-12 bg-pink-400 text-black font-black flex items-center justify-center neo-border hover:-translate-y-1 transition-transform">GH</a>
+            </div>
+          </div>
+          
+          <a href="#" className="neo-button bg-white text-black neo-border px-8 py-4 font-black uppercase text-xl inline-block shadow-[6px_6px_0px_0px_#fde047]">
+            Back to Top 
+          </a>
+        </div>
       </footer>
     </div>
   );
